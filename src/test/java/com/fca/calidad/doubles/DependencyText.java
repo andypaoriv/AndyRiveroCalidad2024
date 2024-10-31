@@ -27,8 +27,7 @@ class DependencyText {
 		int resultadoEsperado = 12;
 		assertThat(resultadoEsperado, is(dependency.addTwo(2)));
 	}
-
-
+	
 
 	@Test
 	void test() {
