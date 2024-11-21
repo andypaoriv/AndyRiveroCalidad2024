@@ -43,6 +43,7 @@ public User findUserById(int id) {
 		
 		return dao.findById(id);
 	}
+
     
     public User updateUser(User user) {
     	User userOld = dao.findById(user.getId());

@@ -84,8 +84,8 @@ public class UserServiceTest {
     
     @Test
     void findAllUsers() {
-    	User user1 = new User("user1", "user1@example.com", "password1");
-        User user2 = new User("user2", "user2@example.com", "password2");
+    	User user1 = new User("user1", "andypao@hotmail.com", "Andy10");
+        User user2 = new User("user2", "andresestrada@hotmail.com", "Andres10");
         db.put(1, user1);
         db.put(2, user2);
 
@@ -100,7 +100,7 @@ public class UserServiceTest {
     
     @Test
     void findUserById() {
-    	User user = new User("user1", "user1@example.com", "password1");
+    	User user = new User("Usuario1", "andypao@hotmail.com", "Andy10");
         user.setId(1);
         db.put(1, user);
 
@@ -114,15 +114,15 @@ public class UserServiceTest {
     
     @Test
     void findUserByEmail() {
-    User user = new User("user1", "user1@example.com", "password1");
+    User user = new User("Usuario1", "andypao@hotmail.com", "Andy10");
     db.put(1, user);
 
     when(dao.findUserByEmail("user1@example.com")).thenReturn(user);
 
-    User result = service.findUserByEmail("user1@example.com");
+    User result = service.findUserByEmail("andypao@hotmail.com");
 
-    assertThat(result.getEmail(), is("user1@example.com"));
-    assertThat(result.getName(), is("user1"));
+    assertThat(result.getEmail(), is("andypao@hotmail.com"));
+    assertThat(result.getName(), is("Usuario1"));
 }
     
     @Test
