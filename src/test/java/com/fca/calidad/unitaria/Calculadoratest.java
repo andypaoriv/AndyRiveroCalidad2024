@@ -58,4 +58,18 @@ class Calculadoratest {
 			//verificar
 			assertThat (divEsperado, is(divEjecucion));
 		}
+		
+		 void multiplicacion2numerosPositivostest() {
+				
+				double resEsperado = 10;
+				
+				//Ejercicio, llamar al metodo que queremos probar
+				double resEjecucion = calculadora.multiplica(num1, num2);
+				
+				//verificar
+				assertThat(resEsperado, is(resEjecucion));
+			 
+			 
+			}
+			 
 }
