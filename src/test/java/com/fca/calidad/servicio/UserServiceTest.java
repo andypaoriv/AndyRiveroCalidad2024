@@ -190,4 +190,27 @@ public class UserServiceTest {
         assertThat(result.getPassword(), is("nuevoPassword"));
         assertThat(result.getName(), is("nuevoNombre"));
     }
+    
+    void testfindall() {
+        
+        for (int i = 1; i <= 5; i++) {
+            User user = new User("User" + i, "user" + i + "@example.com", "password" + i);
+            user.setId(i);
+            db.put(user.getId(), user);
+        }
+
+        when(dao.findAll()).thenReturn(new ArrayList<>(db.values()));
+
+        List<User> result = service.findAllUsers();
+        
+        assertThat(result.size(), is(5));
+
+        for (User user : result) {
+            assertThat(db.containsKey(user.getId()), is(true));
+            User userInDB = db.get(user.getId());
+            assertThat(user.getName(), is(userInDB.getName()));
+            assertThat(user.getEmail(), is(userInDB.getEmail()));
+            assertThat(user.getPassword(), is(userInDB.getPassword()));
+        }
+    }
 }
